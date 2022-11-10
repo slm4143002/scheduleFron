@@ -1,0 +1,33 @@
+.header_area {
+    position: relative;
+    width: 1400px;
+    height: 44px;
+    font-family: "Lucida Calligraphy", cursive, serif, sans-serif;
+    font-style: italic;
+    font-weight: bolder;
+    background: linear-gradient(blue, rgb(30, 4, 90));
+    left:150px;
+  }
+
+.header_title {
+    display: flex;
+    width: 1400px;
+}
+
+.system_name {
+  width: 80%;
+  align-items: center;
+  -webkit-align-items: center;
+  letter-spacing: 2em;
+  font-size: 20px;
+}
+
+.header_user {
+  width: 20%;
+  font-size: 16px;
+}
+
+.header_user span {
+  font-size: 14px;
+}
+
