@@ -15,13 +15,27 @@
       body {
         margin: 0;
         padding: 0;
-        background: #22528f url("./bg.jpg") no-repeat;
+        height: 100%;
+        flex-direction: column;
+        display: flex;
+        background-image: url("./bg.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        background-attachment: fixed;
+        font-family: "Lucida Calligraphy", cursive, serif, sans-serif;
         color: #ffffff;
+      }
+
+      #root {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
       }
     </style>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
   </body>
 </html>

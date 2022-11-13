@@ -6,7 +6,7 @@ const ScheduleResult = () => {
   const [posts, setPosts] = useState([]);
 
   async function getScheduleResultList() {
-    await fetch("http://localhost:3000/v1/scheduleResult", { method: "GET" })
+    await fetch("http://localhost:8080/v1/scheduleResult", { method: "GET" })
       .then((res) => res.json())
       .then((data) => {
         setPosts(data);
@@ -16,7 +16,7 @@ const ScheduleResult = () => {
   return (
     <div className="schedule">
       <div className="s_btn">
-        <button className="knopf pill" onClick={() => getScheduleResultList()}>
+        <button className="knopf" onClick={() => getScheduleResultList()}>
           排班结果
         </button>
       </div>

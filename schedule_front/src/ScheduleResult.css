@@ -8,21 +8,24 @@
   width: 1400px;
   top: 70px;
   left: 350px;
+  text-align: center;
 
 }
 
 .schedule_result {
-    margin-top: 1px;
+    position: relative;
     display: grid;
     grid-template-columns: repeat(8, 100px);
+    grid-template-rows: 30px;
 }
 .schedule_result div {
   border: 1px solid rgb(64, 6, 135);
   background: linear-gradient(blue, rgb(30, 4, 90))
 }
 .schedule_list_result {
-  margin-top: 1px;
+  position: relative;
   display: grid;
+  grid-auto-rows: 35px;
   grid-template-columns: repeat(8, 100px);
 }
 .schedule_list_result div {
