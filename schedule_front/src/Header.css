@@ -6,7 +6,6 @@
     font-style: italic;
     font-weight: bolder;
     background: linear-gradient(blue, rgb(30, 4, 90));
-
     text-align: center;
   }
 
@@ -27,5 +26,10 @@
 
 .header_user span {
   font-size: 14px;
+}
+
+.header_logout {
+  display: flex;
+  justify-content: space-around;
 }
 

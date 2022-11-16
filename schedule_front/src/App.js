@@ -1,19 +1,20 @@
 import "./App.css";
 import ScheduleResult from "./ScheduleResult";
-import Header from "./Header";
+import Entry from "./Entry";
 import Login from "./Login";
-import useToken from "./useToken";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
-  const { token, setToken } = useToken();
-  if (!token) {
-    return <Login setToken={setToken} />;
-  }
+  // setTokenParam(tokenObj);
+
   return (
-    <>
-      <Header />
-      <ScheduleResult />
-    </>
+    <Routes>
+      <Route path="/" element={<Entry />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/viewResult" element={<ScheduleResult />} />
+      <Route path="/*" element={<Entry />} />
+      <Route />
+    </Routes>
   );
 }
 

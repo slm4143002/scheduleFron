@@ -1,25 +1,26 @@
 import "./Login.css";
 import "./knopf.css";
 import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
-async function loginUser(credentials) {
+async function loginUser(userInfo) {
   return fetch("http://localhost:8080/v1/login", {
     method: "post",
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },
-    body: JSON.stringify({ a: "a" }),
+    body: JSON.stringify(userInfo),
   }).then((data) => data.json());
 }
 
-const Login = ({ setToken }) => {
+const Login = () => {
   const [formErrors, setFormErrors] = useState({
     error1: "",
     error2: "",
   });
   const userId = useRef();
   const passWord = useRef();
-
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const errorObj = validate();
@@ -28,14 +29,17 @@ const Login = ({ setToken }) => {
       return;
     }
     const token = await loginUser({
-      userid: userId.current.value,
+      userId: userId.current.value,
       password: passWord.current.value,
     });
-    if (token.userid === "") {
+
+    if (Object.keys(token).length === 0 || token.userid === "") {
       setFormErrors({ error1: "", error2: "用户名或密码不正确，请重新输入!" });
       return;
     }
-    setToken(token);
+    sessionStorage.setItem("token", JSON.stringify(token));
+    sessionStorage.setItem("loginStats", "1");
+    navigate("/");
   };
   const validate = () => {
     const errors = { error1: "", error2: "" };
@@ -70,4 +74,5 @@ const Login = ({ setToken }) => {
     </div>
   );
 };
+
 export default Login;
